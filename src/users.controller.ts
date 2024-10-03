@@ -1,5 +1,9 @@
-import { Controller, Get, Post, Put, Delete, Patch, Req, HttpCode, Res, Header, Param } from '@nestjs/common'; // Decorator
+import { Controller, Get, Post, Put, Delete, Patch, Req, HttpCode, Res, Header, Param, Body } from '@nestjs/common'; // Decorator
 import { Request, Response } from 'express';
+import { CreateUserDTO } from './dto/create-user-dto';
+
+const USERS = [];
+
 @Controller("/users") // User Decorator
 export class UsersController {
 
@@ -15,5 +19,21 @@ export class UsersController {
     getVideos(@Param('id') param: number) {
         console.log(param);
         return `Showing videos`;
+    }
+
+    @Post("/addUser")
+    addUser(@Body() createUserDto: CreateUserDTO) {
+        USERS.push(createUserDto);
+        return "User added";
+    }
+
+    @Get("/allUsers")
+    getAllUsers() {
+        return USERS;
+    }
+
+    @Get("/sigleUser/:id")
+    getUser(@Param('id') id: number) {
+        return USERS.find(user => user.id == +id);
     }
 }
