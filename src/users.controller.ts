@@ -38,7 +38,7 @@ export class UsersController {
     }
 
     @Put("/updateUser/:id")
-    getUserUpdate(@Param('id') id: number,@Body() createUserDto: CreateUserDTO) {
+    getUserUpdate(@Param('id') id: number, @Body() createUserDto: CreateUserDTO) {
         const user = USERS.find(user => user.id == +id);
         user.name = createUserDto.name;
         user.age = createUserDto.age;
