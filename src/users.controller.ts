@@ -42,6 +42,7 @@ export class UsersController {
         const user = USERS.find(user => user.id == +id);
         user.name = createUserDto.name;
         user.age = createUserDto.age;
+        user.id = createUserDto.id;
         return "User updated";
     }
 
