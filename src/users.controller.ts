@@ -67,4 +67,24 @@ export class UsersController {
         return `Success`;
     }
 
+    //// Body Data submission JSON & URL encoded DTO
+    @Get(":id")
+    getUserById(@Param('id') id: number, @Body() updateUserDTO: CreateUserDTO) {
+        return USERS.find(user => user.id === +id);
+    }
+
+    @Put(":id")
+    updateUser(@Param("id") id: number, @Body() updateUserDTO: CreateUserDTO) {
+        const userInd = USERS.findIndex((user) => +user.id === +id) /// yaha plus ka mtlb han convert ho rahe ha id ma
+
+        if (!userInd) {
+            return;
+        }
+
+        USERS[userInd] = updateUserDTO;
+    }
+
+
+
+
 }
