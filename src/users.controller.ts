@@ -25,7 +25,6 @@ interface QueryParams {
 
 @Controller("/users") // User Decorator
 export class UsersController {
-
     constructor(private store: UserStore) {
         console.log('store constructor >>', this.store);
     }
