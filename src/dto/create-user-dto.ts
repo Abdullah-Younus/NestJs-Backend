@@ -1,5 +1,5 @@
 export class CreateUserDTO {
   name: string;
-  age: string;
+  age: number;
   id: number;
 }
