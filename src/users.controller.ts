@@ -22,7 +22,6 @@ interface QueryParams {
     age: number;
 }
 
-
 @Controller("/users") // User Decorator
 export class UsersController {
     constructor(private store: UserStore) {
@@ -72,7 +71,6 @@ export class UsersController {
     deleteUser(@Param() params: Record<string, any>) {
         const user = USERS.find(user => user.id == +params.id);
         USERS.splice(USERS.indexOf(user), 1);
-        console.log('params >>>', params);
         return "User deleted";
     }
 
@@ -92,7 +90,6 @@ export class UsersController {
     @Put(':id')
     updateUser(@Param('id') id: number, @Body() updateUserDTO: CreateUserDTO) {
         const userInd = USERS.findIndex((user) => +user.id === +id); /// yaha plus ka mtlb han convert ho rahe ha id ma
-
         if (!userInd) {
             return;
         }

@@ -82,7 +82,6 @@ export class UsersController {
         console.log(query);
         return `Success`;
     }
-
     //// Body Data submission JSON & URL encoded DTO
     @Get(":id")
     getUserById(@Param('id') id: number, @Body() updateUserDTO: CreateUserDTO) {
