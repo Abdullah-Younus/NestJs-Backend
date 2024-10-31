@@ -17,9 +17,7 @@ interface QueryParams {
 
 @Controller("/users") // User Decorator
 export class UsersController {
-    constructor(private userService: UserService) {
-        console.log('store constructor >>', this.userService);
-    }
+    constructor(private userService: UserService) { }
 
     @Post("/addUser")
     addUser(@Body() createUserDto: CreateUserDTO) {

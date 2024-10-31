@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 
-interface User {
+export interface User {
     name: string;
     age: number;
     id: number;
@@ -11,13 +11,12 @@ export class UsersService {
 
     private store = new Map<number, User>();
 
-
     addUser(user: User) {
         this.store.set(user.id, user);
     }
 
     getUsers() {
-        return Array.from(this.store).map((_, user) => user);
+        return Array.from(this.store).map(([_, user]) => user);
     }
 
     getUser(id: number) {
