@@ -9,7 +9,7 @@ import { RouterModule } from '@nestjs/core';
 
 
 const ROUTES = [
-  { path: 'jobs', module: UsersModule }
+  { path: 'jobs', module: UsersModule },
   // { path: 'admin', module: AdminModule,
   //   children: [
   //   {
@@ -18,6 +18,7 @@ const ROUTES = [
   //   },
   //  {path:'offices',module:AdminOfficesModule}
   // ]}
+
 ];
 
 

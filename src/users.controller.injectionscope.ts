@@ -10,6 +10,7 @@ import {
     Param,
     Body,
     Query,
+    ParseIntPipe,
 } from '@nestjs/common'; // Decorator
 import { Request, Response } from 'express';
 import { CreateUserDTO } from './dto/create-user-dto';
@@ -38,7 +39,7 @@ export class UsersController {
     }
 
     @Get("/videos/:id")
-    getVideos(@Param('id') param: number) {
+    getVideos(@Param('id', ParseIntPipe) id: number, @Query("increment", ParseIntPipe) param: number) {
         console.log(param);
         return `Showing videos`;
     }

@@ -23,6 +23,12 @@ export class UsersService {
         this.store.get(id);
     }
 
+    /**
+     * Updates an existing user in the store.
+     *
+     * @param id - The unique identifier of the user to update.
+     * @param user - The user object containing updated information.
+     */
     updateUser(id: number, user: User) {
         this.store.set(id, user);
     }
