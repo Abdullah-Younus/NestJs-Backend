@@ -87,7 +87,7 @@ export class UsersController {
     @Get(":id")
     getUserById(@Param('id') id: number, @Body() updateUserDTO: CreateUserDTO) {
         return USERS.find(user => user.id === +id);
-    }
+    }   
 
     @Put(':id')
     updateUser(@Param('id') id: number, @Body() updateUserDTO: CreateUserDTO) {
